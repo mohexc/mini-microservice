@@ -17,14 +17,14 @@ const PostsPage = () => {
 
   return (
     <div style={{ padding: "1rem" }}>
-      <Row gutter={[16, 16]} style={{ width: 900 }}>
-        <Col span={8}>
+      <Row gutter={[16, 16]} style={{ width: 900, margin: "auto" }}>
+        <Col span={24}>
           <CreatePost refetch={fetchPosts} />
         </Col>
       </Row>
-      <Row gutter={[16, 16]} style={{ width: 900 }}>
+      <Row gutter={[16, 16]} style={{ width: 900, margin: "auto" }}>
         {posts.map((post) => (
-          <Col key={JSON.stringify(post)}>
+          <Col span={8} key={JSON.stringify(post)}>
             <PostCard post={post} />
           </Col>
         ))}

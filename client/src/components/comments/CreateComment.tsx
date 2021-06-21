@@ -18,12 +18,12 @@ const CreateComment: FC<CreateCommentInterface> = ({ postId, refetch }) => {
   return (
     <Form form={form} onFinish={handleSubmit} name="create comment">
       <Row>
-        <Col>
+        <Col span={18}>
           <Form.Item noStyle name="content">
             <Input />
           </Form.Item>
         </Col>
-        <Col>
+        <Col span={6}>
           <Form.Item noStyle>
             <Button type="primary" htmlType="submit">
               Submit
