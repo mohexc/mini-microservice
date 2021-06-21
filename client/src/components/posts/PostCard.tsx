@@ -22,6 +22,7 @@ const PostCard: FC<PostCardPorps> = ({ post }) => {
 
   useEffect(() => {
     fetchComments();
+    // eslint-disable-next-line
   }, []);
 
   const fetchComments = async () => {
@@ -33,7 +34,7 @@ const PostCard: FC<PostCardPorps> = ({ post }) => {
       <h6>id : {post.id}</h6>
       <h4>title : {post.title}</h4>
       <CreateComment postId={post.id} refetch={fetchComments} />
-      {comments.map((commnet) => (
+      {comments.reverse().map((commnet) => (
         <p key={JSON.stringify(commnet)}>{commnet.content}</p>
       ))}
     </Card>
