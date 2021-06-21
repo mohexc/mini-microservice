@@ -1,9 +1,10 @@
 const express = require('express')
+const cors = require('cors')
 const { randomBytes } = require('crypto')
 const app = express()
-
 const posts = []
 
+app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -11,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/posts', (req, res) => {
-  res.send(posts)
+  res.send(posts.reverse())
 })
 
 app.post('/posts', (req, res) => {
