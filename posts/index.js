@@ -27,4 +27,9 @@ app.post('/posts', async (req, res) => {
   res.status(201).json(posts.find(post => post.id === id))
 })
 
-app.listen(4000, console.log('Server service posts on port 4000'))
+app.post('/events', (req, res) => {
+  console.log("EventReceived ", req.body.type)
+  res.send({})
+})
+
+app.listen(4000, console.log('Posts service  on port 4000'))

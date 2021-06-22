@@ -40,4 +40,10 @@ app.post('/posts/:id/comments', async (req, res) => {
   res.status(201).json(commentsByPostId[req.params.id].find(comment => comment.id === commentId))
 })
 
-app.listen(4001, console.log('Server service posts on port 4001'))
+app.post('/events', (req, res) => {
+  console.log("Event Received ", req.body.type)
+  res.send({})
+})
+
+
+app.listen(4001, console.log('Comment service on port 4001'))
