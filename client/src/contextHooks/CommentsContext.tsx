@@ -20,7 +20,7 @@ const CommentsProvider: FC = ({ children }) => {
   };
 
   const createComment = async (postId: string, values: { content: string }) => {
-    const { data } = await axios.post(`http://localhost:4001/posts/${postId}/comments`, values);
+    const { data } = await axios.post(`http://localhost:4002/posts/${postId}/comments`, values);
     return data;
   };
 

@@ -34,7 +34,8 @@ app.post('/posts/:id/comments', async (req, res) => {
     data: {
       id: commentId,
       content,
-      postId: req.params.id
+      postId: req.params.id,
+      status: "pending"
     }
   })
   res.status(201).json(commentsByPostId[req.params.id].find(comment => comment.id === commentId))

@@ -14,7 +14,6 @@ const posts = {
       { id: 'kadf', content: "comment!" }
     ]
   }
-
 }
 
 app.get('/', (req, res) => {
@@ -23,7 +22,6 @@ app.get('/', (req, res) => {
 
 app.get('/posts', (req, res) => {
   res.send(posts)
-
 })
 
 app.post('/events', (req, res) => {

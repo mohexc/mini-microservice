@@ -11,7 +11,7 @@ const PostsPage = () => {
   }, []);
 
   const fetchPosts = async () => {
-    const { data } = await axios.get("http://localhost:4000/posts");
+    const { data } = await axios.get("http://localhost:4002/posts");
     setPosts(data);
   };
 
@@ -23,7 +23,7 @@ const PostsPage = () => {
         </Col>
       </Row>
       <Row gutter={[16, 16]} style={{ width: 900, margin: "auto" }}>
-        {posts.map((post) => (
+        {Object.values(posts).map((post) => (
           <Col span={8} key={JSON.stringify(post)}>
             <PostCard post={post} />
           </Col>
