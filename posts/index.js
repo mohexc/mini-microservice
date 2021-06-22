@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const { randomBytes } = require('crypto')
+const { default: axios } = require('axios')
 const app = express()
 const posts = []
 
@@ -11,15 +12,19 @@ app.get('/', (req, res) => {
   res.send('service posts running')
 })
 
-app.get('/posts', (req, res) => {
+app.get('/posts', async (req, res) => {
   res.send(posts.reverse())
 })
 
-app.post('/posts', (req, res) => {
+app.post('/posts', async (req, res) => {
   const id = randomBytes(4).toString('hex')
   const { title } = req.body
   posts.push({ id, title })
-  res.status(201).json({ id, title })
+  await axios.post('http://localhost:4005/events', {
+    type: "PostCreated",
+    data: { id, title }
+  })
+  res.status(201).json(posts.find(post => post.id === id))
 })
 
 app.listen(4000, console.log('Server service posts on port 4000'))
