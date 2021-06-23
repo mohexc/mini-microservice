@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
 import { Card } from "antd";
-import { useCommentsContext } from "../../contextHooks/CommentsContext";
 import CreateComment from "../comments/CreateComment";
 import CommentsList from "../comments/CommentsList";
 interface PostType {
@@ -16,11 +15,12 @@ interface PostCardPorps {
 interface CommentInterface {
   id: string;
   content: string;
+  status: string;
 }
 
 const PostCard: FC<PostCardPorps> = ({ post }) => {
+  // eslint-disable-next-line
   const [comments, setComments] = useState<CommentInterface[]>([]);
-  // const { getCommentsByPostId } = useCommentsContext();
 
   useEffect(() => {
     fetchComments();
